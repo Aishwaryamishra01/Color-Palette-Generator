@@ -1,0 +1,134 @@
+/* setting the font family as roboto */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* basic reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto",sans-serif;
+}
+
+/* setting a linear gradient background and all the elments at ethe center of the body horizontally and vertically */
+body{
+    background: linear-gradient(135deg, #83a8df, #c3cfe2);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;  /* centering element vertically */
+    justify-content: center;  /*centering element horizontally  */
+    padding: 20px;
+}
+
+
+/* styling the container which contains all imp elements */
+.container{
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+h1{
+    text-align: center;  /*for centering the heading*/
+    margin-bottom: 1.5rem;
+    color: #333;
+    position: relative;  /* on the h1 → makes it the reference box. for anny absolutely positoned element inside it*/
+    padding-bottom: 0.5rem;
+
+}
+
+h1:after {
+    content: "";
+    position: absolute; /* on h1::after → lets you place the pseudo‑element exactly where you want inside that h1.*/
+    bottom: 0;
+    left:50%; /*the left edge of the pseudo‑element will be placed at 50% of the width of its containing block */
+    transform: translateX(-50%);/*shifts the element back by half of its own width in the right side*/
+    /* left 50% and transform:translatex(-50% ) Together → the pseudo‑element is perfectly centered. */
+    width: 50%;
+    height: 3px;
+    background-color: #667eea;
+    border-radius: 2px;
+
+}
+
+
+#generate-btn{
+    background:linear-gradient(45deg, #667eea,#764ba2);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+
+}
+
+#generate-btn:hover{
+    transform: translateY(-2px);
+    box-shadow:  rgba(102 , 126, 234, 0.3);
+}
+
+#generate-btn:active{
+    transform:translateY(0);/* so that after clicking the button go back to its norma size*/
+
+}
+
+.palette-container{
+    display: grid; /* turns the container into css grid*/
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); /*makes a responsive  */
+    /* It creates a responsive grid where items are at least 130px wide, expand evenly, and 
+    automatically adjust into as many columns as fit the container. */
+}
+
+.color-box{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0,0.1);
+    transition: transform 0.2s;
+}
+
+.color-box:hover{
+    transform:translateY(-5px);
+}
+
+.color{
+    height: 120px;
+    cursor: pointer;
+}
+
+
+.color-info{
+    background-color: #fff;
+    padding: 0.7rem;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+
+}
+
+.hex-value{
+    font-weight:500;
+    letter-spacing: 0.5px;
+
+}
+
+.copy-btn{
+    cursor: pointer;
+    color: #64748b;
+    transition: color 0.2s;
+}
+.copy-btn:hover{
+    color: #667eea;
+}
+
+
+@media(max-width:768px){
+    .palette-container{
+        grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+        
+    }
+}
